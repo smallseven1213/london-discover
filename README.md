@@ -61,3 +61,16 @@ node scripts/check-bridge.mjs
 ```
 
 The render check requires a working native WebGPU adapter. It validates deterministic repeated frames and that a camera change alters the rendered pixels. See `docs/QA.md` for browser and deployment verification.
+
+### Browser regression: visible 3D controls
+
+With the built site served at port 5173, use an installed Chrome browser with a WebGPU adapter:
+
+```sh
+npm run test:bridge:browser
+npm run test:bridge:browser -- --fallback
+# The same check can validate the deployed UI:
+npm run test:bridge:browser -- https://smallseven1213.github.io/london-discover/zh-tw/bridge/
+```
+
+Set `CHROME_BIN` if Chrome is installed at a different path. The test launches one isolated headless Chrome and closes it after testing. It checks the real Qwik buttons, canvas/photo visibility, pixel changes for both views, dragging, keyboard controls and a mobile resize. The separate fallback check disables WebGPU in the test browser and verifies the photograph remains visible. Captures are written under `work/bridge-browser/` and are not committed.

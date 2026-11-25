@@ -13,7 +13,8 @@ export default component$(()=>{
  useVisibleTask$(({cleanup})=>{cleanup(()=>runtime.value?.dispose());});
  return <><Header locale={locale}/><main class="sub-main" id="top"><div class="wrap">
    <div class="sub-head"><a class="link back-link" href={pathFor(locale)}>{t.back}</a><h1>{t.sceneTitle}</h1><p>{t.sceneLead}</p></div>
-   <div class="bridge-stage" data-active={state.value==='ready'}><Photo id="f152982562" alt={locale==='en'?'Tower Bridge, London':'倫敦塔橋'}/><canvas ref={canvas} width="1200" height="650" tabIndex={state.value==='ready'?0:-1} role="img" aria-label={t.modelNote}/></div>
+   {/* Qwik renders boolean data attributes as presence flags; CSS needs the literal string "true". */}
+   <div class="bridge-stage" data-active={state.value==='ready' ? 'true' : 'false'}><Photo id="f152982562" alt={locale==='en'?'Tower Bridge, London':'倫敦塔橋'}/><canvas ref={canvas} width="1200" height="650" tabIndex={state.value==='ready'?0:-1} role="img" aria-label={t.modelNote}/></div>
    <div class="bridge-controls">
    {state.value!=='ready' ? <button class="btn btn--primary" type="button" disabled={state.value==='loading'} onClick$={async()=>{
      if(!canvas.value)return;state.value='loading';

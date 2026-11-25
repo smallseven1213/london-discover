@@ -55,6 +55,24 @@ The final gate lists 11 non-blocking warnings. These include expected photo deve
 
 Eight Wikimedia Commons photographs show the actual named London locations. Authors, source pages, Creative Commons licenses and crop/adaptation notices are published on both credits pages. Licensed public photographs serve the finished editorial guide; no replacement client photographs are required. Official visitor sources are linked from the relevant content and credits pages.
 
-The 3D scene is an architectural interpretation, not a surveyed or photogrammetric reconstruction. Hardware rendering was tested through vgpu's native adapter; the browser test intentionally uses CPU Chrome and verifies the fallback. A matrix of physical phones/Safari/GPU drivers was not tested.
+The 3D scene is an architectural interpretation, not a surveyed or photogrammetric reconstruction. Hardware rendering was initially tested through vgpu's native adapter, while the original CPU-browser check covered only fallback. The controls regression below now covers the actual browser renderer and UI on Apple Metal. A matrix of physical phones/Safari/GPU drivers was not tested.
 
 The website is static. LocalStorage retains walk progress and prototype layouts on the current device. It has no backend or analytics. Google Fonts and linked map/visitor sites remain external services.
+
+## 3D view-control regression fix
+
+A user report revealed a missing integration check. The original page passed a boolean into `data-active`. Qwik rendered the ready value as an empty attribute, while the CSS required `[data-active=true]`. The runtime and buttons worked underneath a fully visible photograph; the canvas remained transparent.
+
+Reproduction on the deployed page with WebGPU enabled and Apple Metal showed both buttons present, `data-active=""`, no runtime errors, and **0 changed pixels** for either view button. The fix writes explicit `"true"` / `"false"` strings so the photograph and canvas switch visibility correctly.
+
+The new browser regression test uses the actual Qwik controls and screenshot pixels, with these local results:
+
+| Interaction | Changed canvas pixels |
+|---|---:|
+| River to front view | 195,040 |
+| Front to river view | 195,040 |
+| Drag to rotate | 286,980 |
+| Arrow-key camera movement | 43,098 |
+| Switch views after resizing to 390px | 36,554 |
+
+The visible model replaces the photograph; there is no horizontal overflow or browser error. A separate unsupported-browser test verifies the photograph remains visible and the canvas stays hidden. TypeScript and the static production build pass. This test supplements the shader-only test, which could not detect the original display-layer failure.
