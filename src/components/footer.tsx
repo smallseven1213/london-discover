@@ -12,7 +12,7 @@ export const FooterLinks = component$<{ locale: Locale }>(({ locale }) => {
         <a href="https://tfl.gov.uk/plan-a-journey/" target="_blank" rel="noopener noreferrer">{t.transit}</a><a href={pathFor(locale, 'credits/')}>{t.credits}</a>
       </nav>
     </div>
-    <div class="footer__legal"><span>© 2026 London Discover</span><a href={pathFor(locale, 'credits/')}>{t.sourceLine}</a></div>
+    <div class="footer__legal"><span>© 2026 London Discover</span><a href={pathFor(locale, 'design-system/')}>{t.designSystem}</a><a href={pathFor(locale, 'credits/')}>{t.sourceLine}</a></div>
   </div>;
 });
 

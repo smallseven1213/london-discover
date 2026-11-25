@@ -1,0 +1,78 @@
+{
+  "name": "London Discover",
+  "version": 1,
+  "sources": [
+    "theme.css",
+    "assets/system.css",
+    "assets/motion/motion.css"
+  ],
+  "colors": {
+    "--p-bg": "#f7f3ec",
+    "--p-surface": "#ede6da",
+    "--p-ink": "#2a2622",
+    "--p-muted": "#665e55",
+    "--p-accent": "#7a4a2c",
+    "--p-accent-ink": "#fff",
+    "--p-action": "#7a4a2c",
+    "--p-action-ink": "#fff",
+    "--p-inv-bg": "#2a2622",
+    "--p-inv-surface": "#36322e",
+    "--p-inv-ink": "#f7f3ec",
+    "--p-inv-muted": "#a29e98",
+    "--p-inv-accent": "#f7f3ec",
+    "--p-inv-accent-ink": "#2a2622",
+    "--p-inv-action": "#f7f3ec",
+    "--p-inv-action-ink": "#2a2622"
+  },
+  "typography": {
+    "--font-display": "\"EB Garamond\",\"Songti TC\",\"Noto Serif CJK TC\",Georgia,serif",
+    "--font-text": "\"Jost\",\"PingFang TC\",\"Microsoft JhengHei\",sans-serif",
+    "--display-weight": "400",
+    "--display-tracking": "-.012em"
+  },
+  "fluidType": {
+    "--step--1": "clamp(.875rem,.8571rem + .0893vw,.9375rem)",
+    "--step-0": "clamp(1rem,.9643rem + .1786vw,1.125rem)",
+    "--step-1": "clamp(1.125rem,1.0893rem + .1786vw,1.25rem)",
+    "--step-2": "clamp(1.5rem,1.3571rem + .7143vw,2rem)",
+    "--step-3": "clamp(2rem,1.7143rem + 1.4286vw,3rem)"
+  },
+  "fluidSpace": {
+    "--space-s": "clamp(1rem,.9286rem + .3571vw,1.25rem)",
+    "--space-m": "clamp(1.5rem,1.3571rem + .7143vw,2rem)",
+    "--space-l-xl": "clamp(1.5rem,1.0714rem + 2.1429vw,3rem)"
+  },
+  "spacing": {
+    "--s-1": "4px",
+    "--s-2": "8px",
+    "--s-3": "12px",
+    "--s-4": "16px",
+    "--s-5": "24px",
+    "--s-6": "32px",
+    "--s-7": "48px",
+    "--s-8": "64px",
+    "--s-9": "96px",
+    "--s-10": "128px"
+  },
+  "controls": {
+    "--btn-h": "44px",
+    "--btn-h-sm": "36px",
+    "--ease": "cubic-bezier(.2, .8, .2, 1)",
+    "--dur": "180ms"
+  },
+  "motion": {
+    "--m-in": "150ms",
+    "--m-out": "120ms",
+    "--m-press": "90ms",
+    "--m-panel": "200ms",
+    "--m-close": "120ms",
+    "--m-slide": "240ms",
+    "--m-image": "600ms",
+    "--m-image-out": "400ms",
+    "--m-ease": "var(--ease, cubic-bezier(.2, .8, .2, 1))",
+    "--m-ease-io": "cubic-bezier(.65, 0, .35, 1)",
+    "--m-ease-enter": "cubic-bezier(.22, 1, .36, 1)",
+    "--m-cycle": "3.2s",
+    "--m-lift": "-2px"
+  }
+}

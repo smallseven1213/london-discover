@@ -27,11 +27,12 @@ function makeNodes(locale: Locale): PageNode[] {
     ['walk', zh?'散步路線':'Walking route', zh?'四站路線與儲存進度':'Four stops and saved progress', 'walk/', 840, 250],
     ['bridge', zh?'3D 塔橋':'3D Tower Bridge', zh?'旋轉模型／照片備援':'Orbit model / photograph fallback', 'bridge/', 0, 500],
     ['credits', zh?'來源與授權':'Credits & sources', zh?'攝影授權與官方連結':'Photography licenses and official links', 'credits/', 280, 500],
+    ['design-system', zh?'設計系統':'Design system', zh?'色彩、字體、流動尺度與元件':'Colour, type, fluid scales and components', 'design-system/', 560, 500],
     ['language', zh?'English 版本':'繁體中文版本', zh?'保留目前頁面的語系切換':'Same page, another language', '@language', 840, 500],
   ];
   return defs.map(([id,label,detail,page,x,y])=>({id, type:'page',position:{x,y},data:{label,detail,href: page === '@language' ? pathFor(zh?'en':'zh-tw') : pathFor(locale,page),kind:page.startsWith('#')?(zh?'首頁區塊':'Home section'):(zh?'頁面':'Page'),open:zh?'開啟頁面':'Open page'}}));
 }
-const initialEdges: Edge[] = [['home','visit'],['home','places'],['home','neighbourhoods'],['home','walk'],['visit','bridge'],['places','credits'],['home','language'],['walk','language']].map(([source,target])=>({id:`${source}-${target}`,source,target,type:'smoothstep'}));
+const initialEdges: Edge[] = [['home','visit'],['home','places'],['home','neighbourhoods'],['home','walk'],['visit','bridge'],['places','credits'],['home','design-system'],['home','language'],['walk','language']].map(([source,target])=>({id:`${source}-${target}`,source,target,type:'smoothstep'}));
 
 function Prototype({locale}: {locale:Locale}) {
   const zh=locale==='zh-tw';
@@ -44,7 +45,12 @@ function Prototype({locale}: {locale:Locale}) {
       if(saved?.version===1 && Array.isArray(saved.positions) && Array.isArray(saved.edges)) {
         setNodes(makeNodes(locale).map(n=>{const p=saved.positions.find((p:{id:string})=>p.id===n.id);return p&&Number.isFinite(p.x)&&Number.isFinite(p.y)?{...n,position:{x:p.x,y:p.y}}:n;}));
         const ids = new Set(makeNodes(locale).map(n=>n.id));
-        setEdges(saved.edges.filter((e:Edge)=>typeof e.id==='string'&&ids.has(e.source)&&ids.has(e.target)).map((e:Edge)=>({id:e.id,source:e.source,target:e.target,type:'smoothstep'})));
+        const restored: Edge[] = saved.edges.filter((e:Edge)=>e && typeof e.id==='string'&&ids.has(e.source)&&ids.has(e.target)).map((e:Edge)=>({id:e.id,source:e.source,target:e.target,type:'smoothstep'}));
+        // Add the new page to older saved layouts, preserving later intentional edge deletions.
+        if (!saved.positions.some((p:{id:string})=>p?.id==='design-system') && !restored.some(e=>e.source==='home'&&e.target==='design-system')) {
+          restored.push({id:'home-design-system',source:'home',target:'design-system',type:'smoothstep'});
+        }
+        setEdges(restored);
       }
     } catch { setStatus(zh?'無法讀取已儲存的排列':'Saved layout could not be read'); }
     setReady(true);

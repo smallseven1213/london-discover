@@ -6,8 +6,9 @@
     "node": ">=22"
   },
   "scripts": {
-    "dev": "vite --host 127.0.0.1",
-    "build": "npm run build.types && npm run build.client && npm run build.server && node scripts/finalize.mjs",
+    "dev": "npm run tokens && vite --host 127.0.0.1",
+    "tokens": "node scripts/design-tokens.mjs",
+    "build": "npm run tokens && npm run build.types && npm run build.client && npm run build.server && node scripts/finalize.mjs",
     "build.types": "tsc --noEmit",
     "build.client": "vite build",
     "build.server": "vite build -c adapters/static/vite.config.ts",

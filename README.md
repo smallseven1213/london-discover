@@ -6,6 +6,7 @@ A bilingual London city guide built with Qwik City, Tailwind CSS 3 and Utopia-st
 - English: https://smallseven1213.github.io/london-discover/en/
 - Prototype: https://smallseven1213.github.io/london-discover/zh-tw/prototype/
 - 3D Tower Bridge: https://smallseven1213.github.io/london-discover/zh-tw/bridge/
+- Design system: https://smallseven1213.github.io/london-discover/zh-tw/design-system/
 
 ## Run locally
 
@@ -32,6 +33,7 @@ The complete static artifact is `dist/london-discover/`. It contains pre-rendere
 - `prototype/`: React Flow canvas isolated through `@builder.io/qwik-react`. Drag nodes, connect handles, select/delete edges, pan/zoom, save the layout, reset it, or export JSON. Node links open the real pages. Saved positions and connections are shared between languages on the same device.
 - `bridge/`: vgpu/WebGPU architectural study with a custom WGSL shader. Click to load, drag to orbit, use arrow keys and +/− to adjust the view, or choose front/angled presets. Rendering occurs on demand. Unsupported devices retain the reference photograph.
 - `credits/`: individual photograph credits, source pages, licenses and official visitor information.
+- `design-system/`: bilingual visual documentation with copyable colours, contrast ratios, editable type specimens, a 320–1440px Utopia preview, spacing, responsive layout rules, live components, and image/motion guidance. The footer and prototype link to it.
 
 The 3D scene reconstructs recognisable bridge forms. It is an architectural interpretation, not a photogrammetry survey. Opening times, prices and travel durations are intentionally delegated to official sources.
 
@@ -42,6 +44,7 @@ The 3D scene reconstructs recognisable bridge forms. It is an architectural inte
 - Design Taste 2.5.1 system, layout, motion and one photo-development moment are copied unchanged under `public/assets/`; project overrides live in `public/theme.css`.
 - Tailwind v3 utilities are configured with preflight disabled to preserve the design system. Its fluid tokens are exposed in `tailwind.config.ts`.
 - Main content is static HTML; React Flow and vgpu are loaded only for their dedicated experiences. The guide remains readable without JavaScript.
+- `npm run tokens` extracts the design tokens from the actual theme, system and motion CSS into `public/design-tokens.json` and `src/lib/design-tokens.generated.json`. Both development and production builds run this step; edit the source CSS rather than the generated JSON. The JSON is downloadable from the design system page.
 - No account, backend, analytics or application secret is required. Walk progress and prototype layouts use localStorage on the current device. Google Fonts and linked map providers are external services.
 
 ## Deploy

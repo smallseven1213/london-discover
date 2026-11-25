@@ -76,3 +76,17 @@ The new browser regression test uses the actual Qwik controls and screenshot pix
 | Switch views after resizing to 390px | 36,554 |
 
 The visible model replaces the photograph; there is no horizontal overflow or browser error. A separate unsupported-browser test verifies the photograph remains visible and the canvas stays hidden. TypeScript and the static production build pass. This test supplements the shader-only test, which could not detect the original display-layer failure.
+
+## Design system page
+
+GATE: OFF (no build active). The previous landing-page gate is closed. This addition is reference documentation, using natural content heights and the established theme; no new landing-page gate pass is claimed. See `docs/design-system.md` for the scope adaptation.
+
+The production build generates 13 pages, including both design system locales. The public and imported token JSON files are identical and generated from the actual CSS. There is one description meta tag per page, with the correct localized design-system text.
+
+Headless Chrome checks at 1440, 1024, 820, 768, 390 and 320px found no horizontal overflow or elements beyond the page edges. Full-page desktop and phone screenshots were inspected, along with tablet first-screen captures. The English phone layout also passes. The Chinese 390px and English 320px home footers retain separate CTA and directory areas after adding the design-system link.
+
+The editable type sample, font toggle, viewport slider and checklist update in the production build. The largest fluid step measures 32px, 41.14px and 48px at simulated widths of 320, 960 and 1440px respectively. The focus outline is visible and the disabled control retains its native disabled state. The clipboard success handler was tested with an isolated clipboard stub, verifying the exact hex value and announcement without overwriting the user's system clipboard; the unavailable-clipboard path was tested separately in the restricted headless browser. No runtime errors were reported.
+
+The English documentation copy lint has 0 FAIL and 1 retained WARN: its six numbered sections are a reference index, not a sequence of instructions. No copied kit asset was changed.
+
+React Flow verification confirms nine visible nodes and nine default edges. An older eight-node saved layout retains its edited coordinates and receives the design-system node/edge. A saved layout that already contains the new node preserves an intentionally deleted edge; reset restores all nine defaults. The image loads at its full 1200px source width, the contents anchor navigates correctly, the JSON download returns 200 with all 16 colour tokens, and reduced-motion mode reduces the image transition to the kit's effectively instant duration.
