@@ -1,4 +1,6 @@
-GATE: PASS
+GATE: OFF (no build active)
+
+The last active finish gate returned **GATE: PASS**, closing its build marker. A later invocation after image-size optimisation correctly reported OFF; it was not rearmed or represented as a new pass.
 
 Validation date: 2026-11-25. Design Taste 2.5.1 finish gate passed on round 2, with no open failures and the four explicit waivers below.
 
@@ -18,6 +20,27 @@ Voice: short geographical descriptions, concrete names, direct actions; no inven
 - WebGPU shader validation passes with no diagnostics. Native GPU test produces identical repeated frames; the front-view camera changes 133,383 sampled pixels, with no GPU errors. The CPU-only browser correctly retains the reference photograph and displays the fallback when WebGPU is unavailable.
 - Copy lint: zero failures, zero warnings.
 - Full consistency sweep was run at 1440, 1024, 820, 768 and 390px. Its actionable layout findings were corrected; the final finish gate retested 1440/390px, narrow-screen overflow at 320px, and the layout stress checks.
+
+## Final layout, performance and deployment
+
+Full-page screenshots were reviewed at 1440×900, 1024×768, 820×1180, 768×1024 and 390×844. The layout check's only findings were the synthetic Chinese headline stress tests at 1440/390px, covered by the explicit waiver below; the other three sizes had no findings. A final tablet correction gives every landmark photograph the same frame height; the updated 820px screenshot is exactly five screens.
+
+The final performance run reports **0 FAIL, 1 WARN**. Three CPU-browser loads per size produced:
+
+| Metric | Desktop 1440px | Phone 390px |
+|---|---:|---:|
+| Total transfer | 1029.7 KiB | 808.2 KiB |
+| Parsed JavaScript | 224.8 KiB | 224.8 KiB |
+| Layout shift | 0.000 | 0.000 |
+| Long tasks / blocking time | 0 / 0ms | 0 / 0ms |
+| Median FCP / LCP | 96 / 96ms | 56 / 56ms |
+| Broken requests | 0 | 0 |
+
+These are local CPU-browser observations, not real-user network timings. The one warning concerns two 1200px photographs shown in narrower phone frames. Their larger sources preserve enough vertical resolution for the taller cover crops on tablets.
+
+The final React Flow visual probe confirms all eight nodes fit inside the canvas and every edge SVG has a nonzero width. A real language-switch click from the Chinese walking page opens the English walking page.
+
+GitHub Actions builds and deploys the site. Live HTTP checks returned 200 for all 11 page URLs, the social image, both page-specific stylesheets and the sitemap. The canonical URL is https://smallseven1213.github.io/london-discover/.
 
 ## Gate waivers
 
