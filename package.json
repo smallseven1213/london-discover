@@ -1,0 +1,38 @@
+{
+  "name": "london-discover",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "npm run build.types && npm run build.client && npm run build.server && node scripts/finalize.mjs",
+    "build.types": "tsc --noEmit",
+    "build.client": "vite build",
+    "build.server": "vite build -c adapters/static/vite.config.ts",
+    "preview": "vite preview --host 127.0.0.1",
+    "qwik": "qwik"
+  },
+  "dependencies": {
+    "@builder.io/qwik": "1.20.4",
+    "@builder.io/qwik-city": "1.20.4",
+    "@builder.io/qwik-react": "0.5.8",
+    "@xyflow/react": "13.0.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "vgpu": "^0.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@vgpu/wgsl": "^0.6.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "sharp": "0.34.5",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.8.3",
+    "vite": "^6.4.1"
+  }
+}

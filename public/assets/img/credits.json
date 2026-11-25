@@ -1,0 +1,127 @@
+{
+  "note": "Credits for the photographs in this folder: photos.mjs credits prints the footer block for the ones the pages use.",
+  "photos": [
+    {
+      "file": "photo-f131575562-1200.webp",
+      "files": [
+        "photo-f131575562-1200.webp",
+        "photo-f131575562-2400.webp",
+        "photo-f131575562-600.webp",
+        "photo-f131575562-phone.webp"
+      ],
+      "id": "f131575562",
+      "alt": "Westminster Bridge and Westminster, 2023",
+      "by": "Thomas Dahlstrøm Nielsen",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Westminster_Bridge_and_Westminster,_2023.jpg",
+      "source": "Wikimedia Commons",
+      "adapted": true
+    },
+    {
+      "file": "photo-f152982562-1200.webp",
+      "files": [
+        "photo-f152982562-1200.webp",
+        "photo-f152982562-600.webp"
+      ],
+      "id": "f152982562",
+      "alt": "Tower Bridge London September 2024 2",
+      "by": "Choinowski",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Tower_Bridge_London_September_2024_2.jpg",
+      "source": "Wikimedia Commons",
+      "adapted": true
+    },
+    {
+      "file": "photo-f133433027-1200.webp",
+      "files": [
+        "photo-f133433027-1200.webp",
+        "photo-f133433027-600.webp"
+      ],
+      "id": "f133433027",
+      "alt": "London Eye from Westminster Bridge in London",
+      "by": "Manishprabhunejapan",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:London_Eye_from_Westminster_Bridge_in_London.jpg",
+      "source": "Wikimedia Commons",
+      "adapted": true
+    },
+    {
+      "file": "photo-f100551953-1200.webp",
+      "files": [
+        "photo-f100551953-1200.webp",
+        "photo-f100551953-600.webp"
+      ],
+      "id": "f100551953",
+      "alt": "St Pauls Cathedral in London",
+      "by": "Chitrapa",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:St_Pauls_Cathedral_in_London.jpg",
+      "source": "Wikimedia Commons",
+      "adapted": true
+    },
+    {
+      "file": "photo-f23076202-1200.webp",
+      "files": [
+        "photo-f23076202-1200.webp",
+        "photo-f23076202-600.webp"
+      ],
+      "id": "f23076202",
+      "alt": "Borough Market (4701274756)",
+      "by": "Jeremy Keith from Brighton & Hove, United Kingdom",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Borough_Market_(4701274756).jpg",
+      "source": "Wikimedia Commons",
+      "adapted": true
+    },
+    {
+      "file": "photo-f109496782-1200.webp",
+      "files": [
+        "photo-f109496782-1200.webp",
+        "photo-f109496782-600.webp"
+      ],
+      "id": "f109496782",
+      "alt": "Covent Garden 2018",
+      "by": "VirtuallyLondonBecky",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Covent_Garden_2018.jpg",
+      "source": "Wikimedia Commons",
+      "adapted": true
+    },
+    {
+      "file": "photo-f145078262-1200.webp",
+      "files": [
+        "photo-f145078262-1200.webp",
+        "photo-f145078262-600.webp"
+      ],
+      "id": "f145078262",
+      "alt": "Colourful houses in Lancaster Road, Notting Hill 2020-07-05",
+      "by": "Bex Walton",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Colourful_houses_in_Lancaster_Road,_Notting_Hill_2020-07-05.jpg",
+      "source": "Wikimedia Commons",
+      "adapted": true
+    },
+    {
+      "file": "photo-f32590722-1200.webp",
+      "files": [
+        "photo-f32590722-1200.webp",
+        "photo-f32590722-600.webp"
+      ],
+      "id": "f32590722",
+      "alt": "Portobello Road - Notting Hill (2946908101)",
+      "by": "Cristian Bortes from Cluj-Napoca, Romania",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Portobello_Road_-_Notting_Hill_(2946908101).jpg",
+      "source": "Wikimedia Commons",
+      "adapted": true
+    }
+  ]
+}
